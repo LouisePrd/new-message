@@ -1,15 +1,78 @@
-@import "tailwindcss";
-
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-}
-
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #050505;
+  font-family: "so-lovely", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+* {
+  box-sizing: border-box;
+}
+
+.home-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Overlay du haut (Formulaire) */
+.ui-overlay {
+  position: absolute;
+  top: 5vh;
+  width: 100%;
+  text-align: center;
+  z-index: 20;
+}
+
+.message-input {
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: 1px solid #333;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  width: 300px;
+  outline: none;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+.message-input:focus {
+  border-color: #ff4d4d;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.bottom-overlay {
+  position: absolute;
+  bottom: 8vh;
+  width: 100%;
+  text-align: center;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.message-date {
+  color: rgba(255, 255, 255, 0.4);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.message-title {
+  font-size: 2rem;
+  margin: 0;
+  padding: 0 20px;
+  text-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+}
+
+.message-highlight {
+  color: #ff4d4d;
+  font-weight: bold;
 }
