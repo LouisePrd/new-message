@@ -33,6 +33,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <link rel="stylesheet" href="https://use.typekit.net/etq7pee.css"></link>
         <Meta />
         <Links />
+        <title>Hearth</title>
       </head>
       <body>
         {children}
