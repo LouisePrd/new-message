@@ -83,16 +83,22 @@ export default function Home() {
     );
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
-      const docs = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-        time:
-          doc
-            .data()
-            .createdAt?.toDate()
-            ?.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) ||
-          "...",
-      }));
+      const docs = snapshot.docs.map((doc) => {
+        const date = doc.data().createdAt?.toDate();
+        return {
+          id: doc.id,
+          ...doc.data(),
+          time: date
+            ? date.toLocaleString("fr-FR", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+              })
+            : "...",
+        };
+      });
 
       const chronological = docs.reverse(); 
       setMessages(chronological);
